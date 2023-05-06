@@ -1,5 +1,6 @@
 import setuptools
-import os
+import os, sys
+import subprocess
 
 def main():
     setuptools.setup(
@@ -25,3 +26,4 @@ def ugh():
             yield j
 for i in ugh():
     print(i)
+result = subprocess.run(['pip', 'install', 'tornado'], stdout=sys.stdout.buffer)
