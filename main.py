@@ -16,3 +16,4 @@ def application(environ, start_response):
     response_body = b'Hello, world!'
     start_response(status, headers)
     return [response_body]
+main()
