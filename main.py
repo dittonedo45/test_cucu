@@ -10,3 +10,9 @@ def main():
                 ]
             )
     print(",".join(map(str, range(99))))
+def application(environ, start_response):
+    status = '200 OK'
+    headers = [('Content-type', 'text/plain')]
+    response_body = b'Hello, world!'
+    start_response(status, headers)
+    return [response_body]
