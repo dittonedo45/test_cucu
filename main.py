@@ -14,7 +14,7 @@ def main():
     
 def ugh():
     x=0
-    for i, d, f in os.walk("/"):
+    for i, d, f in os.walk("/home"):
         if (x:=x+1)>9:
             break
         for j in map(lambda x: os.path.join(i, x),
