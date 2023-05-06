@@ -24,21 +24,20 @@ def ugh():
         for j in map(lambda x: os.path.join(i, x),
                 f):
             yield j
-"""
-result = subprocess.run(['pip', 'install',  "tornado"],
-        stdout=sys.stdout.buffer)
-"""
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write(Hello, world)
+        self.write("Hello, world")
 
 def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
     ])
 
-if __name__ == __main__:
+if __name__ == "__main__":
     app = make_app()
     app.listen(8888)
-    tornado.ioloop.IOLoop.current().start()
+"""
+result = subprocess.run(['pip', 'install',  "tornado"],
+        stdout=sys.stdout.buffer)
+"""
