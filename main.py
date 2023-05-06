@@ -3,6 +3,7 @@ import os, sys
 import subprocess
 import tornado
 import tornado.web
+import asyncio
 
 def main():
     setuptools.setup(
@@ -35,9 +36,18 @@ def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
     ])
+async def asleep (y):
+    await asyncio.sleep(y)
+async def go(x, y):
+    print(x)
+    await asleep (y)
+    pass
+async def goo():
+    await asyncio.gather(
+            *(go (i, i ) for i in range(90))
+            )
 
 if __name__ == "__main__":
     app = make_app()
     app.listen(8888)
-    print(app)
-    print(dir(app))
+    asyncio.run (goo())
