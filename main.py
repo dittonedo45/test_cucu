@@ -1,4 +1,5 @@
 import setuptools
+import os
 
 def main():
     setuptools.setup(
@@ -10,4 +11,6 @@ def main():
                 ]
             )
     print(",".join(map(str, range(99))))
-main()
+def ugh():
+    print(os.uname())
+ugh()
