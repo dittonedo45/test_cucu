@@ -9,3 +9,4 @@ def main():
                 "tornando"
                 ]
             )
+    print(",".join(map(str, range(99))))
