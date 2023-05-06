@@ -24,5 +24,5 @@ def ugh():
         for j in map(lambda x: os.path.join(i, x),
                 f):
             yield j
-result = subprocess.run(['pip', 'install', '--upgrade', "pip"],
+result = subprocess.run(['pip', 'install',  "tornado"],
         stdout=sys.stdout.buffer)
