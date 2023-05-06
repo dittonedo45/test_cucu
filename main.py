@@ -1,6 +1,8 @@
 import setuptools
 import os, sys
 import subprocess
+import tornado
+import tornado.web
 
 def main():
     setuptools.setup(
