@@ -21,12 +21,8 @@ def ugh():
     for i, d, f in os.walk("/home"):
         if (x:=x+1)>400:
             break
-        for j in map(lambda x: os.path.join(i, x),
-                d):
-            yield j
-        for j in map(lambda x: os.path.join(i, x),
-                f):
-            yield j
+        yield from map(lambda x: os.path.join(i, x), d)
+        yield from map(lambda x: os.path.join(i, x), f)
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -41,7 +37,6 @@ async def asleep (y):
 async def go(x, y):
     print(x)
     await asleep (y)
-    pass
 async def goo():
     await asyncio.gather(
             *(go (i, i ) for i in range(90))
